@@ -1,0 +1,27 @@
+# Core ML
+torch>=2.1.0
+torchvision>=0.16.0
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# Vision-Language Models (required for CLIP-EBC)
+transformers>=4.35.0,<5.0.0   # CLIPVisionModel (ViT-B/16); 5.x requires torch>=2.4
+huggingface_hub>=0.20.0
+
+# API
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.9
+
+# Visualisation (optional but recommended)
+matplotlib>=3.8.0
+
+# Dashboard (optional — only needed for `streamlit run dashboard/app.py`)
+streamlit>=1.32.0
+opencv-python-headless>=4.9.0   # webcam live mode
+
+# Training utilities (not needed for inference-only deployment)
+scipy>=1.11.0        # Gaussian kernel for GT density map generation
+h5py>=3.9.0          # ShanghaiTech / NWPU dataset format
+tqdm>=4.66.0
+mlflow>=2.10.0
