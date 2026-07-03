@@ -156,7 +156,7 @@ class CrowdInferenceEngine:
             density, size=(h_orig, w_orig), mode="bilinear", align_corners=False
         )
 
-        count      = float(density.sum().item())
+        count      = max(0.0, float(density.sum().item()))
         density_np = density_up.squeeze().cpu().numpy()
         heatmap_b64 = _density_to_heatmap_b64(density_np)
 
