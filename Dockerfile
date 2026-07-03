@@ -31,7 +31,7 @@ COPY model/ ./model/
 COPY api/   ./api/
 
 # Optional: copy pre-trained weights if present
-COPY checkpoints/ ./checkpoints/ 2>/dev/null || true
+RUN mkdir -p ./checkpoints
 
 USER crowdsight
 
