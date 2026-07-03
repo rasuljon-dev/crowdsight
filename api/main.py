@@ -12,6 +12,7 @@ Run locally:
 Interactive docs: http://localhost:8000/docs
 """
 
+import io
 import os
 from contextlib import asynccontextmanager
 from typing import Optional
@@ -20,7 +21,6 @@ from fastapi import FastAPI, File, HTTPException, Security, UploadFile, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from PIL import Image
-import io
 
 from api.inference import CrowdInferenceEngine
 
