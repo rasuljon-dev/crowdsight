@@ -126,9 +126,9 @@ class DMCountLoss(nn.Module):
         loss = self.w_ot * l_ot + self.w_tv * l_tv + self.w_count * l_count
 
         return loss, {
-            "loss_ot":    l_ot.item(),
-            "loss_tv":    l_tv.item(),
-            "loss_count": l_count.item(),
+            "ot":       l_ot.item(),
+            "tv":       l_tv.item(),
+            "count": l_count.item(),
         }
 
 
