@@ -130,6 +130,7 @@ class MACCNN(nn.Module):
             nn.Conv2d(64, 1, 1),
             nn.ReLU(inplace=True),           # density map is non-negative
         )
+        self.output_stride = 4  # two MaxPool2d layers → stride 4
         self._init_weights()
 
     def _init_weights(self):
