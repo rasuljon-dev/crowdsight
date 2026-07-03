@@ -13,7 +13,6 @@ Architecture:
 
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 
 
 # ─── Channel Attention ────────────────────────────────────────────────────────
@@ -66,7 +65,6 @@ class CNNColumn(nn.Module):
 
     def __init__(self, dilation: int = 1, out_channels: int = 128):
         super().__init__()
-        pad = dilation
         self.features = nn.Sequential(
             nn.Conv2d(3, 32, 9, padding=4 * dilation, dilation=dilation, bias=False),
             nn.BatchNorm2d(32),
