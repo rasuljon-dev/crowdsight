@@ -90,7 +90,7 @@ class CSRNet(nn.Module):
         """
         x = self.frontend(x)
         x = self.backend(x)
-        return self.output_layer(x)
+        return torch.relu(self.output_layer(x))
 
     # ── Helpers ───────────────────────────────────────────────────────────────
 
