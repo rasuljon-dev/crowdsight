@@ -31,7 +31,6 @@ CLIP-EBC (paper)    ~56     ← this model (using EBC cross-entropy; MSE gives ~
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Optional
 
 
 class CLIP_EBC(nn.Module):
