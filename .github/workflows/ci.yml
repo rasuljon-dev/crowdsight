@@ -47,7 +47,7 @@ jobs:
           EOF
 
       - name: Ruff lint
-        run: ruff check . --select=E,F,W,I --ignore=E501,W503
+        run: ruff check . --select=E,F,W,I --ignore=E501
 
   # ── 2. Unit tests ──────────────────────────────────────────────────────────
   test:
