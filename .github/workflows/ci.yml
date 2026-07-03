@@ -5,6 +5,7 @@ on:
     branches: [main, develop]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -139,11 +140,11 @@ jobs:
           pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
           pip install transformers huggingface_hub numpy Pillow
 
-      - name: Download checkpoints artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: checkpoints
-          path: checkpoints/
+      - name: Prepare checkpoints directory
+        # No prior job uploads a 'checkpoints' artifact.
+        # Model weights must be provided externally (e.g. via a repository secret
+        # or a separate upload step) before this workflow can export them.
+        run: mkdir -p checkpoints/
 
       - name: Export weights
         run: |
@@ -160,7 +161,7 @@ jobs:
           retention-days: 90
 
       - name: Push to HuggingFace Hub
-        if: env.HF_TOKEN != ''
+        if: secrets.HF_TOKEN != ''
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
